@@ -8,6 +8,7 @@ namespace DataStructures_Ronda
 {
     internal class Queue<T>
     {
+        // private fields to track the front rear and count of elements
         private QueueNode<T> front;
         private QueueNode<T> rear;
         private int count;
@@ -30,13 +31,13 @@ namespace DataStructures_Ronda
         // Nested class QueueNode representing elements in the queue
         internal class QueueNode<T>
         {
-            public T Value { get; set; }    // Data stored in the node
-            public QueueNode<T> Next { get; set; }      // Reference to next node
-            public QueueNode<T> Previous { get; set; }  // Reference to previous node
+            internal T Value { get; set; }    // Data stored in the node
+            internal QueueNode<T> Next { get; set; }      // Reference to next node
+            internal QueueNode<T> Previous { get; set; }  // Reference to previous node
 
             // constructor for queue nodes - sets value to given value
             // and next and previous references to null
-            public QueueNode(T value)
+            internal QueueNode(T value)
             {
                 Value = value;
                 Next = null;
@@ -46,7 +47,7 @@ namespace DataStructures_Ronda
         } // class QueueNode
 
         // Enqueue adds element to rear of queue
-        internal void Enqueue(T value)
+        public void Enqueue(T value)
         {
             // Create a new node with the given value
             QueueNode<T> newNode = new QueueNode<T>(value);
@@ -70,7 +71,7 @@ namespace DataStructures_Ronda
         } // Enqueue
 
         // Dequeue removes element at front and returns its value
-        internal T Dequeue()
+        public T Dequeue()
         {
             // If front is already null, return default
             if (front == null) return default;
@@ -99,7 +100,7 @@ namespace DataStructures_Ronda
         } // Dequeue
 
         // Peek returns the value of the front element without removing it
-        internal T Peek()
+        public T Peek()
         {
             // If front is already null, return default
             if (front == null) return default;
@@ -108,7 +109,7 @@ namespace DataStructures_Ronda
             return front.Value;
         } // Peek
 
-        internal void Clear()  // empties the queue
+        public void Clear()  // empties the queue
         {
             // loop runs until queue is empty
             while(front != null)
