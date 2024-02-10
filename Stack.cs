@@ -8,10 +8,10 @@ namespace DataStructures_Ronda
 {
     internal class Stack<T>
     {
-        internal StackNode<T> top;   // top element in the stack
-        internal int count;          // tracks the number of elements in the stack
+        private StackNode<T> top;   // top element in the stack
+        private int count;          // tracks the number of elements in the stack
 
-        public Stack()
+        internal Stack()
         {
             top = null;     
             count = 0;

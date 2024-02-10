@@ -7,8 +7,8 @@
     {
         static void Main(string[] args)
         {
-            StackTest();
-            //QueueTest(); 
+            //StackTest();
+            QueueTest();
         } // Main
 
         static void StackTest()
