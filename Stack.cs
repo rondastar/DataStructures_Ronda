@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataStructures_Ronda
 {
+    // Ronda Rutherford
+    // 2-10-24
     internal class Stack<T>
     {
         private StackNode<T> top;   // top element in the stack

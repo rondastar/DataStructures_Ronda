@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataStructures_Ronda
 {
+    // Ronda Rutherford
+    // 2-10-24
     internal class Queue<T>
     {
         // private fields to track the front rear and count of elements
