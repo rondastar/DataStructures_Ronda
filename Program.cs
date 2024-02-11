@@ -7,10 +7,71 @@
     {
         static void Main(string[] args)
         {
+            DoublyTest();
             //StackTest();
             //QueueTest();
         } // Main
 
+        static void DoublyTest()
+        {
+            // ======= Test doubly linked list with string =================
+            Console.WriteLine("Test doubly linked list with string:");
+
+            // create new doubly linked list
+            LinkedListDoubly<string> doublyString = new LinkedListDoubly<string>();
+
+            // test remove methods when null
+            Console.WriteLine(doublyString.RemoveAtFront()); // blank
+            //Console.WriteLine(doublyString.RemoveAtIndex(2)); // throw exception
+            Console.WriteLine(doublyString.RemoveAtEnd()); // blank
+
+            // test add and insert methods
+            doublyString.Add("Apple");
+            doublyString.InsertAtFront("Banana");
+            doublyString.InsertAtIndex(1, "Cantaloupe");
+            doublyString.InsertAtEnd("Dragonfruit");
+            doublyString.Add("Eggplant");
+
+            // test count and display
+            Console.WriteLine(doublyString.Count); // 5
+            doublyString.DisplayForward(); // Banana Cantaloupe Apple Dragonfruit Eggplant
+
+            // test remove methods 
+            Console.WriteLine(doublyString.Remove("Cantaloupe")); // true
+            Console.WriteLine(doublyString.RemoveAtFront()); // Banana
+
+            doublyString.DisplayBackward(); // Eggplant Dragonfruit Apple
+            Console.WriteLine(doublyString.RemoveAtIndex(1)); // Dragonfruit
+            Console.WriteLine(doublyString.RemoveAtEnd()); // Eggplant
+
+            // test count and display
+            Console.WriteLine(doublyString.Count); // 1
+            doublyString.DisplayForward(); // Apple
+
+            // ======= Test doubly linked list with double =================
+            Console.WriteLine("Test doubly linked list with double:");
+            LinkedListDoubly<double> doublyDouble = new LinkedListDoubly<double>();
+
+            // test add and insert methods
+            doublyDouble.Add(1.1);
+            doublyDouble.InsertAtFront(0.5);
+            doublyDouble.InsertAtIndex(1, 0.75);
+            doublyDouble.InsertAtEnd(2.2);
+            doublyDouble.Add(3.3);
+
+            // test count and display
+            Console.WriteLine(doublyDouble.Count); // 5
+            doublyDouble.DisplayBackward(); // 3.3, 2.2, 1.1, 0.75, 0.5
+
+            // test remove
+            doublyDouble.Remove(1.1);
+            Console.WriteLine(doublyDouble.RemoveAtIndex(0)); // 0.5
+
+            doublyDouble.DisplayForward(); // 0.75. 2.2, 3.3
+            Console.WriteLine(doublyDouble[2]); // 3.3
+            Console.WriteLine(doublyDouble.Count); // 3
+
+        }
         static void StackTest()
         {
             // ====== Test stack with string ===========================
