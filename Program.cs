@@ -1,4 +1,6 @@
-﻿namespace DataStructures_Ronda
+﻿using System;
+
+namespace DataStructures_Ronda
 {
     // Ronda Rutherford
     // Midterm - Data Structures
@@ -7,11 +9,72 @@
     {
         static void Main(string[] args)
         {
+            SinglyTest();
             DoublyTest();
-            //StackTest();
-            //QueueTest();
+            StackTest();
+            QueueTest();
         } // Main
 
+        static void SinglyTest()
+        {
+            // ======= Test singly linked list with string =================
+            Console.WriteLine("Test singly linked list with string:");
+
+            // create new singly linked list
+            LinkedListSingly<string> singlyString = new LinkedListSingly<string>();
+
+            // test remove methods when null
+            Console.WriteLine(singlyString.RemoveAtFront()); // blank
+            //Console.WriteLine(singlyString.RemoveAtIndex(2)); // throw exception
+            Console.WriteLine(singlyString.RemoveAtEnd()); // blank
+
+            // test add and insert methods
+            singlyString.Add("Apple");
+            singlyString.InsertAtFront("Banana");
+            singlyString.InsertAtIndex(1, "Cantaloupe");
+            singlyString.InsertAtEnd("Dragonfruit");
+            singlyString.Add("Eggplant");
+
+            // test count and display
+            Console.WriteLine(singlyString.Count); // 5
+            singlyString.Display(); // Banana Cantaloupe Apple Dragonfruit Eggplant
+
+            // test remove methods 
+            Console.WriteLine(singlyString.Remove("Cantaloupe")); // true
+            Console.WriteLine(singlyString.RemoveAtFront()); // Banana
+
+            singlyString.Display(); // Apple Dragonfruit Eggplant
+            Console.WriteLine(singlyString.RemoveAtIndex(1)); // Dragonfruit
+            Console.WriteLine(singlyString.RemoveAtEnd()); // Eggplant
+
+            // test count and display
+            Console.WriteLine(singlyString.Count); // 1
+            singlyString.Display(); // Apple
+
+            // ======= Test singly linked list with double =================
+            Console.WriteLine("Test singly linked list with double:");
+            LinkedListSingly<double> singlyDouble = new LinkedListSingly<double>();
+
+            // test add and insert methods
+            singlyDouble.Add(1.1);
+            singlyDouble.InsertAtFront(0.5);
+            singlyDouble.InsertAtIndex(1, 0.75);
+            singlyDouble.InsertAtEnd(2.2);
+            singlyDouble.Add(3.3);
+
+            // test count and display
+            Console.WriteLine(singlyDouble.Count); // 5
+            singlyDouble.Display(); // 0.5, 0.75, 1.1, 2.2, 3.3
+
+            // test remove
+            Console.WriteLine(singlyDouble.Remove(1.1)); // true 
+            Console.WriteLine(singlyDouble.RemoveAtIndex(0)); // 0.5
+
+            singlyDouble.Display(); // 0.75. 2.2, 3.3
+            Console.WriteLine(singlyDouble[2]); // 3.3 
+            Console.WriteLine(singlyDouble.Count); // 3
+
+        }
         static void DoublyTest()
         {
             // ======= Test doubly linked list with string =================
@@ -163,7 +226,7 @@
         static void QueueTest()
         {
             // ===== test queue with string ===========================
-            Console.WriteLine("Queue Test - string");
+            Console.WriteLine("Test queue with string");
             Queue<string> stringQueue = new Queue<string>();
 
             // test enqueue
@@ -195,7 +258,7 @@
 
 
             // ===== test queue with int ===========================
-            Console.WriteLine("Queue Test - int");
+            Console.WriteLine("Test queue with int");
             Queue<int> intQueue = new Queue<int>();
 
             // test enqueue
